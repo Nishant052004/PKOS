@@ -1,0 +1,163 @@
+# NEXUS CI — lint, type check, tests, build validation and security scans.
+#
+# The suite is fully offline-capable (SQLite + embedded Qdrant +
+# deterministic embeddings in tests), so unit and integration tests run
+# without services. The Neo4j-backed graph-store contract tests and the
+# Playwright browser tests run only as separate, clearly-reported jobs —
+# when their service/browser is unavailable the job reports that explicitly
+# instead of silently passing.
+
+name: CI
+
+on:
+  push:
+    branches: [main, my-new-branch]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    name: Lint, format and type check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project + dev tooling
+        run: python -m pip install -e ".[api,web,search,graph,dev]"
+      - name: Ruff (lint)
+        run: python -m ruff check .
+      - name: Ruff (format check)
+        run: python -m ruff format --check .
+      - name: Mypy (type check)
+        run: python -m mypy
+
+  tests:
+    name: Unit + integration tests (coverage)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project + dev tooling
+        run: python -m pip install -e ".[api,web,search,dev,youtube]"
+      - name: Run the test suite with coverage
+        run: |
+          python -m pytest tests/unit tests/integration \
+            --cov=packages --cov=apps/api --cov-report=xml --cov-report=term \
+            -q
+      - name: Record test outcome
+        if: always()
+        run: echo "Unit+integration suite finished (see step above for results)."
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage.xml
+          if-no-files-found: warn
+
+  neo4j-tests:
+    name: Graph store contract tests (Neo4j service)
+    runs-on: ubuntu-latest
+    services:
+      neo4j:
+        image: neo4j:5.26
+        env:
+          NEO4J_AUTH: neo4j/nexus-ci-password
+        ports:
+          - 7687:7687
+        options: >-
+          --health-cmd "wget -qO- http://localhost:7474 || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project + dev tooling
+        run: python -m pip install -e ".[api,search,graph,dev]"
+      - name: Wait for Neo4j to accept connections
+        run: |
+          for i in $(seq 1 30); do
+            if python - <<'PY'
+            import socket, sys
+            s = socket.socket(); s.settimeout(2)
+            try:
+                s.connect(("127.0.0.1", 7687)); sys.exit(0)
+            except OSError:
+                sys.exit(1)
+            finally:
+                s.close()
+            PY
+            then echo "Neo4j is up"; break; fi
+            echo "waiting for neo4j ($i/30)"; sleep 2
+            [ "$i" = 30 ] && { echo "Neo4j never became reachable"; exit 1; }
+          done
+      - name: Run the Neo4j contract suite
+        env:
+          NEXUS_TEST_NEO4J_URI: bolt://127.0.0.1:7687
+          NEXUS_TEST_NEO4J_PASSWORD: nexus-ci-password
+        run: |
+          python -m pytest tests/integration/test_graph_store_contract.py -q
+      - name: Report skipped contract tests (service unavailable)
+        if: failure()
+        run: |
+          echo "::warning::The Neo4j contract tests could not run — the graph \
+          service was unreachable or unhealthy. These tests were NOT verified \
+          by this CI run."
+
+  browser-tests:
+    name: Browser tests (Streamlit UI)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project, dev tooling and browsers
+        run: |
+          python -m pip install -e ".[api,web,search,dev,youtube]"
+          python -m playwright install --with-deps chromium
+      - name: Run the browser suite
+        run: python -m pytest tests/browser -q
+
+  build:
+    name: Build validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build sdist and wheel
+        run: |
+          python -m pip install build
+          python -m build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - name: Validate Docker build
+        run: docker build -t nexus-pkos:ci .
+
+  security:
+    name: Security scans
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project + audit tooling
+        run: python -m pip install -e ".[api,web,search,dev,youtube]"
+      - name: pip-audit (known dependency vulnerabilities)
+        run: python -m pip_audit -l --progress-spinner off
+      - name: Ruff security rules (flake8-bandit subset)
+        run: python -m ruff check .
+      # The production image build is validated in the `build` job; runtime
+      # posture (TLS, proxy, backups) is documented in docs/deployment.md
+      # and NOT claimed to be verified by these scans.
