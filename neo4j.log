@@ -1,0 +1,99 @@
+2026-10-24 17:37:09.391+0000 INFO  Logging config in use: File 'C:\Users\nisha\OneDrive\Desktop\New folder\Personal Knowledge Operating System\.neo4j-server\neo4j-community-5.26.0\conf\user-logs.xml'
+2026-10-24 17:37:09.474+0000 INFO  Starting...
+2026-10-24 17:37:14.917+0000 INFO  This instance is ServerId{5a1ee285} (5a1ee285-d4be-4cb1-ab21-b8ca33c62fde)
+2026-10-24 17:37:23.368+0000 INFO  ======== Neo4j 5.26.0 ========
+2026-10-24 17:37:39.180+0000 INFO  Anonymous Usage Data is being sent to Neo4j, see https://neo4j.com/docs/usage-data/
+2026-10-24 17:37:40.956+0000 INFO  Bolt enabled on localhost:7687.
+2026-10-24 17:37:48.227+0000 INFO  HTTP enabled on localhost:7474.
+2026-10-24 17:37:48.238+0000 INFO  Remote interface available at http://localhost:7474/
+2026-10-24 17:37:48.260+0000 INFO  id: 4492A72CB72AEAAE506EA988BF296E2FA0AEC429AE88F398B2CBB05502EFA87B
+2026-10-24 17:37:48.262+0000 INFO  name: system
+2026-10-24 17:37:48.263+0000 INFO  creationDate: 2026-10-24T17:37:31.146Z
+2026-10-24 17:37:48.265+0000 INFO  Started.
+2026-10-25 20:04:23.688+0000 INFO  Logging config in use: File 'C:\Users\nisha\OneDrive\Desktop\New folder\Personal Knowledge Operating System\.neo4j-server\neo4j-community-5.26.0\conf\user-logs.xml'
+2026-10-25 20:04:23.720+0000 INFO  Starting...
+2026-10-25 20:04:25.846+0000 INFO  This instance is ServerId{5a1ee285} (5a1ee285-d4be-4cb1-ab21-b8ca33c62fde)
+2026-10-25 20:04:57.500+0000 INFO  ======== Neo4j 5.26.0 ========
+2026-10-25 20:05:48.036+0000 INFO  Anonymous Usage Data is being sent to Neo4j, see https://neo4j.com/docs/usage-data/
+2026-10-25 20:05:48.174+0000 INFO  Bolt enabled on localhost:7687.
+2026-10-25 20:06:06.088+0000 INFO  HTTP enabled on localhost:7474.
+2026-10-25 20:06:06.090+0000 INFO  Remote interface available at http://localhost:7474/
+2026-10-25 20:06:06.104+0000 INFO  id: 4492A72CB72AEAAE506EA988BF296E2FA0AEC429AE88F398B2CBB05502EFA87B
+2026-10-25 20:06:06.105+0000 INFO  name: system
+2026-10-25 20:06:06.105+0000 INFO  creationDate: 2026-10-24T17:37:31.146Z
+2026-10-25 20:06:06.106+0000 INFO  Started.
+2026-10-25 20:21:08.662+0000 WARN  [bolt-0] The client is unauthorized due to authentication failure.
+2026-10-25 20:21:08.689+0000 WARN  [bolt-1] The client is unauthorized due to authentication failure.
+2026-10-25 20:21:08.696+0000 WARN  [bolt-2] The client is unauthorized due to authentication failure.
+2026-10-25 20:21:08.704+0000 WARN  [bolt-3] The client has provided incorrect authentication details too many times in a row.
+2026-10-25 20:21:08.710+0000 WARN  [bolt-4] The client has provided incorrect authentication details too many times in a row.
+2026-10-25 20:21:08.738+0000 WARN  [bolt-5] The client has provided incorrect authentication details too many times in a row.
+2026-10-25 20:21:16.473+0000 WARN  [bolt-6] The client is unauthorized due to authentication failure.
+2026-10-25 20:21:16.494+0000 WARN  [bolt-7] The client has provided incorrect authentication details too many times in a row.
+2026-10-25 20:21:57.768+0000 INFO  Logging config in use: File 'C:\Users\nisha\OneDrive\Desktop\New folder\Personal Knowledge Operating System\.neo4j-server\neo4j-community-5.26.0\conf\user-logs.xml'
+2026-10-25 20:21:57.786+0000 INFO  Starting...
+2026-10-25 20:21:58.929+0000 INFO  This instance is ServerId{96794242} (96794242-8d05-4cc1-b4ad-6ee07e727b24)
+2026-10-25 20:22:00.383+0000 INFO  ======== Neo4j 5.26.0 ========
+2026-10-25 20:22:03.679+0000 INFO  Anonymous Usage Data is being sent to Neo4j, see https://neo4j.com/docs/usage-data/
+2026-10-25 20:22:03.763+0000 INFO  Bolt enabled on localhost:7687.
+2026-10-25 20:22:04.733+0000 INFO  HTTP enabled on localhost:7474.
+2026-10-25 20:22:04.734+0000 INFO  Remote interface available at http://localhost:7474/
+2026-10-25 20:22:04.737+0000 INFO  id: B1ECD56986800A4FB6B4D9D8DC6088D25F9DDCC102CC8A72DA57837D64C20892
+2026-10-25 20:22:04.737+0000 INFO  name: system
+2026-10-25 20:22:04.737+0000 INFO  creationDate: 2026-10-25T20:22:01.97Z
+2026-10-25 20:22:04.737+0000 INFO  Started.
+2026-10-29 18:37:45.357+0000 INFO  Logging config in use: File 'C:\Users\nisha\OneDrive\Desktop\New folder\Personal Knowledge Operating System\.neo4j-server\neo4j-community-5.26.0\conf\user-logs.xml'
+2026-10-29 18:37:45.370+0000 INFO  Starting...
+2026-10-29 18:37:46.446+0000 INFO  This instance is ServerId{96794242} (96794242-8d05-4cc1-b4ad-6ee07e727b24)
+2026-10-29 18:37:48.740+0000 INFO  ======== Neo4j 5.26.0 ========
+2026-10-29 18:37:53.404+0000 INFO  Anonymous Usage Data is being sent to Neo4j, see https://neo4j.com/docs/usage-data/
+2026-10-29 18:37:53.572+0000 INFO  Bolt enabled on localhost:7687.
+2026-10-29 18:37:54.994+0000 INFO  HTTP enabled on localhost:7474.
+2026-10-29 18:37:54.995+0000 INFO  Remote interface available at http://localhost:7474/
+2026-10-29 18:37:55.000+0000 INFO  id: B1ECD56986800A4FB6B4D9D8DC6088D25F9DDCC102CC8A72DA57837D64C20892
+2026-10-29 18:37:55.000+0000 INFO  name: system
+2026-10-29 18:37:55.001+0000 INFO  creationDate: 2026-10-25T20:22:01.97Z
+2026-10-29 18:37:55.001+0000 INFO  Started.
+2026-10-29 20:49:21.740+0000 WARN  [bolt-91] The client is unauthorized due to authentication failure.
+2026-10-29 20:49:21.740+0000 WARN  [bolt-90] The client is unauthorized due to authentication failure.
+2026-10-29 20:49:21.755+0000 WARN  [bolt-92] The client is unauthorized due to authentication failure.
+2026-10-29 20:49:21.771+0000 WARN  [bolt-93] The client has provided incorrect authentication details too many times in a row.
+2026-10-29 20:49:21.788+0000 WARN  [bolt-94] The client has provided incorrect authentication details too many times in a row.
+2026-10-29 20:49:21.802+0000 WARN  [bolt-95] The client has provided incorrect authentication details too many times in a row.
+2026-10-29 20:50:43.764+0000 INFO  Logging config in use: File 'C:\Users\nisha\OneDrive\Desktop\New folder\Personal Knowledge Operating System\.neo4j-server\neo4j-community-5.26.0\conf\user-logs.xml'
+2026-10-29 20:50:43.788+0000 INFO  Starting...
+2026-10-29 20:50:44.947+0000 INFO  This instance is ServerId{96794242} (96794242-8d05-4cc1-b4ad-6ee07e727b24)
+2026-10-29 20:50:46.653+0000 INFO  ======== Neo4j 5.26.0 ========
+2026-10-29 20:50:49.213+0000 INFO  Anonymous Usage Data is being sent to Neo4j, see https://neo4j.com/docs/usage-data/
+2026-10-29 20:50:49.297+0000 INFO  Bolt enabled on localhost:7687.
+2026-10-29 20:50:50.340+0000 INFO  HTTP enabled on localhost:7474.
+2026-10-29 20:50:50.341+0000 INFO  Remote interface available at http://localhost:7474/
+2026-10-29 20:50:50.344+0000 INFO  id: B1ECD56986800A4FB6B4D9D8DC6088D25F9DDCC102CC8A72DA57837D64C20892
+2026-10-29 20:50:50.345+0000 INFO  name: system
+2026-10-29 20:50:50.345+0000 INFO  creationDate: 2026-10-25T20:22:01.97Z
+2026-10-29 20:50:50.345+0000 INFO  Started.
+2026-10-29 20:51:14.767+0000 WARN  [bolt-0] The client is unauthorized due to authentication failure.
+2026-10-29 20:52:01.225+0000 INFO  Logging config in use: File 'C:\Users\nisha\OneDrive\Desktop\New folder\Personal Knowledge Operating System\.neo4j-server\neo4j-community-5.26.0\conf\user-logs.xml'
+2026-10-29 20:52:01.242+0000 INFO  Starting...
+2026-10-29 20:52:02.296+0000 INFO  This instance is ServerId{96794242} (96794242-8d05-4cc1-b4ad-6ee07e727b24)
+2026-10-29 20:52:03.620+0000 INFO  ======== Neo4j 5.26.0 ========
+2026-10-29 20:52:06.967+0000 INFO  Anonymous Usage Data is being sent to Neo4j, see https://neo4j.com/docs/usage-data/
+2026-10-29 20:52:07.087+0000 INFO  Bolt enabled on localhost:7687.
+2026-10-29 20:52:08.172+0000 INFO  HTTP enabled on localhost:7474.
+2026-10-29 20:52:08.174+0000 INFO  Remote interface available at http://localhost:7474/
+2026-10-29 20:52:08.180+0000 INFO  id: AE8D3C3479FB88140CEF18EC65CEE766A294BF6495FF966693D90CF895D8F0A7
+2026-10-29 20:52:08.180+0000 INFO  name: system
+2026-10-29 20:52:08.180+0000 INFO  creationDate: 2026-10-29T20:52:05.051Z
+2026-10-29 20:52:08.180+0000 INFO  Started.
+2026-10-30 17:02:39.529+0000 INFO  Logging config in use: File 'C:\Users\nisha\OneDrive\Desktop\New folder\Personal Knowledge Operating System\.neo4j-server\neo4j-community-5.26.0\conf\user-logs.xml'
+2026-10-30 17:02:39.563+0000 INFO  Starting...
+2026-10-30 17:02:43.571+0000 INFO  This instance is ServerId{96794242} (96794242-8d05-4cc1-b4ad-6ee07e727b24)
+2026-10-30 17:02:47.534+0000 INFO  ======== Neo4j 5.26.0 ========
+2026-10-30 17:02:54.457+0000 INFO  Anonymous Usage Data is being sent to Neo4j, see https://neo4j.com/docs/usage-data/
+2026-10-30 17:02:54.944+0000 INFO  Bolt enabled on localhost:7687.
+2026-10-30 17:02:56.933+0000 INFO  HTTP enabled on localhost:7474.
+2026-10-30 17:02:56.935+0000 INFO  Remote interface available at http://localhost:7474/
+2026-10-30 17:02:56.946+0000 INFO  id: AE8D3C3479FB88140CEF18EC65CEE766A294BF6495FF966693D90CF895D8F0A7
+2026-10-30 17:02:56.950+0000 INFO  name: system
+2026-10-30 17:02:56.952+0000 INFO  creationDate: 2026-10-29T20:52:05.051Z
+2026-10-30 17:02:56.953+0000 INFO  Started.
