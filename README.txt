@@ -1,49 +1,48 @@
-Neo4j Extensions
-================
+Neo4j 5.26.0
+=======================================
 
-Neo4j can be extended by writing custom code which can be invoked directly from Cypher,
-as described in the developer manual at https://neo4j.com/docs/developer-manual/current/extending-neo4j/
+Welcome to Neo4j release 5.26.0, a high-performance graph database.
+This is the community distribution of Neo4j, including everything you need to
+start building applications that can model, persist and explore graph-like data.
 
-These extensions are user defined procedures, user defined functions or security plugins. They are written in Java
-and compiled into jar files. They can be deployed to the database by dropping a JAR file into the $NEO4J_HOME/plugins
-directory on each standalone or clustered server. The database must be re-started on each server to pick up new procedures.
-
-Configuring Procedures
-----------------------
-
-There are two configuration settings in $NEO4J_HOME/conf/neoj4.conf that are relevant when deploying procedures
-or user defined functions:
-
-* dbms.security.procedures.unrestricted
-* dbms.security.procedures.allowlist
-
-These are described in more detail in the documentation at
-https://neo4j.com/docs/operations-manual/current/security/securing-extensions/
-
-Sandboxing
+In the box
 ----------
 
-Neo4j provides sandboxing to ensure that procedures do not inadvertently use insecure APIs. For example, when writing
-custom code it is possible to access Neo4j APIs that are not publicly supported, and these internal APIs are subject
-to change, without notice. Additionally, their use comes with the risk of performing insecure actions. The sandboxing
-functionality limits the use of extensions to publicly supported APIs, which exclusively contain safe operations,
-or contain security checks.
+Neo4j runs as a server application, exposing a Web-based management interface.
 
-For example:
+Here in the installation directory, you'll find:
 
-    # Example sandboxing
-    dbms.security.procedures.unrestricted=my.extensions.example,my.procedures.*
+* bin - scripts and other executables
+* conf - server configuration
+* data - databases
+* lib - libraries
+* plugins - user extensions
+* logs - log files
+* import - location of files for LOAD CSV
 
-White listing
--------------
+Make it go
+----------
 
-White listing can be used to allow loading only a few extensions from a larger library.
-The configuration setting dbms.security.procedures.allowlist is used to name certain procedures that should be
-available from a library. It defines a comma-separated list of procedures that are to be loaded.
-The list may contain both fully-qualified procedure names, and partial names with the wildcard *.
+For full instructions, see https://neo4j.com/docs/operations-manual/current/installation/
 
-For example, to only load a subset of the APOC library of procedures:
+To get started with Neo4j, let's start the server and take a
+look at the web interface ...
 
-    # Example allow listing
-    dbms.security.procedures.allowlist=apoc.coll.*,apoc.load.*
+1. Open a console and navigate to the installation directory.
+2. Start the server:
+   * Windows, use: bin\neo4j-admin server console
+   * Linux/Mac, use: ./bin/neo4j-admin server console
+3. In a browser, open http://localhost:7474/
+4. Shutdown the server by typing Ctrl-C in the console.
 
+Learn more
+----------
+
+* Neo4j Home: https://neo4j.com/
+* Getting Started: https://neo4j.com/docs/developer-manual/current/introduction/
+* Neo4j Documentation: https://neo4j.com/docs/
+
+License(s)
+----------
+Various licenses apply. Please refer to the LICENSE and NOTICE files for more
+detailed information.
