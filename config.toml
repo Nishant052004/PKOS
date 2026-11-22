@@ -1,0 +1,12 @@
+# Streamlit defaults for NEXUS (used when running from the project root).
+[server]
+headless = true
+port = 8501
+
+[theme]
+base = "dark"
+primaryColor = "#8b5cf6"
+backgroundColor = "#0a0a16"
+secondaryBackgroundColor = "#151530"
+textColor = "#e6e6f2"
+font = "sans serif"
